@@ -4,7 +4,7 @@
       include_once('common/head.php');
       ?>
 	<body>
-            <?php include_once('common/head.php'); ?>
+            <?php include_once('common/global-loader.php'); ?>
 		<!-- Main Wrapper -->
 		<div class="main-wrapper">
 
