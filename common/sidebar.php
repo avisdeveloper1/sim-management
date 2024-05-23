@@ -5,6 +5,9 @@
 							<li class="active">
 								<a href="index.html" ><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
 							</li>
+							<li>
+								<a href="sim-cards.php" ><i data-feather="layers"></i><span> SIM Cards</span> </a>
+							</li>
 							<li class="submenu">
 								<a href="javascript:void(0);"><img src="assets/img/icons/product.svg" alt="img"><span> Product</span> <span class="menu-arrow"></span></a>
 								<ul>
