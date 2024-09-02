@@ -10,8 +10,6 @@
 					<a href="index.html" class="logo-small">
 						<img src="assets/img/logo-small.png"  alt="">
 					</a>
-					<a id="toggle_btn" href="javascript:void(0);">
-					</a>
 				</div>
 				<!-- /Logo -->
 				
