@@ -1,6 +1,3 @@
-<?php
-include_once('common/config.php');
-?>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -30,3 +27,17 @@ include_once('common/config.php');
 	<link rel="stylesheet" href="assets/css/style.css">
 		
 	</head>
+	<body>
+		<?php
+		require 'common/config.php';
+		$dbConnection = new Dbconfig();
+		if(!$dbConnection->dbConnection()){
+			echo "DB Error";
+			exit();
+		} else {
+			$db = $dbConnection->dbConnection();
+		}
+		?>
+		<div id="global-loader" >
+			<div class="whirly-loader"> </div>
+		</div>
