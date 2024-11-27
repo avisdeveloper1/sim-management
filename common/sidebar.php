@@ -1,13 +1,55 @@
+<?php
+$path = str_replace(".php", "", $_SERVER['REQUEST_URI']);
+$parts = explode("/", trim($path, "/"));
+ $sidebarMenus = array(
+	array(
+		"lable" => "Dashboard",
+		"icon" => "hard-drive",
+		"fileName" => "index",
+		"fileType" => "php",
+		"submenu" => array()
+	),
+	array(
+		"lable" => "SIM Companies",
+		"icon" => "layers",
+		"fileName" => "sim-companies",
+		"fileType" => "php",
+		"submenu" => array()
+	)
+ )
+?>
 <div class="sidebar" id="sidebar">
 				<div class="sidebar-inner slimscroll">
 					<div id="sidebar-menu" class="sidebar-menu">
 						<ul>
-							<li class="active">
-								<a href="index.html" ><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
+							<?php
+							foreach($sidebarMenus as $key => $menu){
+							?>
+							<li class="<?php 
+							echo (array_search($menu['fileName'], $parts)) ? 'active' : ''; 
+							echo (!empty($menu['submenu'])) ? ' submenu' : '';
+							?>">
+								<a href="<?php echo $menu['fileName'].'.'.$menu['fileType'];?>">
+									<i data-feather="<?php echo $menu['icon']?>"></i>
+									<span> 
+										<?php echo $menu['lable']?>
+									</span>
+									<?php echo (!empty($menu['submenu'])) ? ' <span class="menu-arrow"></span>' : '';?>
+									
+								</a>
+								<?php
+								if(!empty($menu['submenu'])){
+									echo '<ul>';
+									foreach($menu['submenu'] as $subKey => $submenu){
+										echo '<li><a href="'.$submenu['fileName'].'.'.$submenu['fileType'].'">'.$submenu['lable'].'</a></li>';
+									}
+									echo '</ul>';
+								} 
+								?>
 							</li>
-							<li>
-								<a href="sim-cards.php" ><i data-feather="layers"></i><span> SIM Cards</span> </a>
-							</li>
+							<?php
+							}
+							?>
 							<li class="submenu">
 								<a href="javascript:void(0);"><img src="assets/img/icons/product.svg" alt="img"><span> Product</span> <span class="menu-arrow"></span></a>
 								<ul>
