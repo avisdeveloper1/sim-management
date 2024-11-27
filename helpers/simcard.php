@@ -1,16 +1,18 @@
 <?php
-
+require_once 'common/config.php';
 class simInteractions {
-     public function getSimCompanies($db, $companyId=0){
-      $where = "";
+
+     public function getSimCompanies($companyId=0){
+      global $db;
+            $where = "";
             if($companyId) {
                   $where = " WHERE id = ".$companyId;
             }
             $res = array("error" => false, "message" => "", "data" => array());
-            $simQuery = "SELECT * FROM sim_companies".$where;
-            $simResult = mysqli_query($db, $simQuery);
-            if ($simResult) {
-                  while ($row = mysqli_fetch_assoc($simResult)) {
+            $query = "SELECT * FROM sim_companies".$where;
+            $result = mysqli_query($db, $query);
+            if ($result) {
+                  while ($row = mysqli_fetch_assoc($result)) {
                         $res['data'][] = $row;
                   }
             } else {
